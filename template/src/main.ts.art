@@ -1,0 +1,11 @@
+import { createApp } from 'vue'
+import { createPhecda } from 'phecda-vue'
+import App from './App.vue'
+import router from './router'
+import 'uno.css'
+
+const app = createApp(App)
+
+app.use(router).use(createPhecda({{name}}))
+
+app.mount('#app')

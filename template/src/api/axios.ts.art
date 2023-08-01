@@ -1,0 +1,14 @@
+const instance = axios.create({ baseURL: '' })
+
+instance.interceptors.request.use((config) => {
+  config.headers.Authorization = token
+  return config
+}, (error) => {
+
+},
+
+)
+
+{{if phecda_client}}
+export const $request = createReq(instance)
+{{/if}}
