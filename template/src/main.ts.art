@@ -6,6 +6,6 @@ import 'uno.css'
 
 const app = createApp(App)
 
-app.use(router).use(createPhecda({{name}}))
+app.use(router).use(createPhecda('{{name}}'))
 
 app.mount('#app')

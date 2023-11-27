@@ -19,7 +19,7 @@ module.exports = {
       name: 'description',
       type: 'text',
       message: 'Project description',
-      initial: 'Phecda-server App'
+      initial: 'Vue App'
     },
     {
       name: 'eslint',
@@ -32,7 +32,7 @@ module.exports = {
       name: 'phecda_client',
       type: 'confirm',
       message: 'Use phecda-client',
-      initial: true
+      initial: false
     },
 
   ],

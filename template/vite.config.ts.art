@@ -10,6 +10,8 @@ import PC from 'phecda-client/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
 import Inspect from 'vite-plugin-inspect'
+import VueDevTools from 'vite-plugin-vue-devtools'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -30,7 +32,8 @@ export default defineConfig({
   },
   plugins: [
     Icons({ compiler: 'vue3' }),
-    Inspect(),
+    VueDevTools(),
+    visualizer(),
     PC({
       localPath: '../server/pmeta.js',
       port: ' http://localhost:3699/',
@@ -46,8 +49,9 @@ export default defineConfig({
     AutoImport({
       dirs: ['./src/**/*'],
       imports: ['vue', 'vue-router', {
-        'phecda-vue': ['useV', 'useR', 'useO', 'Init', 'Tag', 'Storage', 'Watcher', 'Global', 'Clear', 'emitter'],
-        'phecda-client': ['useC', 'createReq'],
+        'vue-request':['useRequest'],
+        'phecda-vue': ['useV','useRaw' ,'useR', 'useO', 'Init', 'Tag', 'Storage', 'Watcher', 'Global', 'Clear', 'emitter'],
+        {{if phecda_client}} 'phecda-client': ['useC', 'createReq'],{{/if}}
         'axios': [['default', 'axios']],
       }],
       resolvers: [
